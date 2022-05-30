@@ -35,8 +35,8 @@ public class SceneController {
         stage.setTitle("Greetings!");
         stage.setScene(scene);
         stage.show();
-
     }
+
     @FXML
     public void FormButtonClicked(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
