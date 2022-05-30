@@ -24,7 +24,8 @@ public class ErrorHandler
                     if(!file1.mkdirs()) throw new Exception("Could not make path");
                 } catch (Exception e)
                 {
-                    e.printStackTrace();
+                    a.setContentText(String.format("Warning : errorHandler not working!!\n%s", e));
+                    a.show();
                 }
             }
             try
