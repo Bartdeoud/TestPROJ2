@@ -11,6 +11,7 @@ public class ErrorHandler
     private static int errorHandlerErrorCount;
     private static final Alert a = new Alert(Alert.AlertType.ERROR);
 
+    //logs the error messages and displays the error messages.
     public static void errorHandler(String error, String message){
         //creates new thread therefore the main thread can continue
         Thread thread = new Thread(() -> {
