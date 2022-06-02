@@ -19,12 +19,12 @@
                   <Font name="Arial Bold" size="71.0" />
                </font>
             </Label>
-            <PasswordField layoutX="736.0" layoutY="820.0" prefHeight="77.0" prefWidth="445.0" promptText="Wachtwoord">
+            <PasswordField fx:id="password" layoutX="736.0" layoutY="820.0" prefHeight="77.0" prefWidth="445.0" promptText="Wachtwoord">
                <font>
                   <Font size="27.0" />
                </font>
             </PasswordField>
-            <TextField layoutX="737.0" layoutY="708.0" prefHeight="77.0" prefWidth="445.0" promptText="Gebruikersnaam">
+            <TextField fx:id="Username" layoutX="737.0" layoutY="708.0" prefHeight="77.0" prefWidth="445.0" promptText="gebruikersnaam">
                <font>
                   <Font size="27.0" />
                </font>

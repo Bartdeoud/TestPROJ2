@@ -16,12 +16,12 @@ public class ErrorHandler
         //creates new thread therefore the main thread can continue
         Thread thread = new Thread(() -> {
             errorMessages.add(String.format("%s\n%s", message, (error)));
-            File file = new File("\\@History\\log.txt");
+            File file = new File("/@History/log.txt");
             if (!file.exists())
             {
                 try
                 {
-                    File file1 = new File("\\@History\\");
+                    File file1 = new File("/@History/");
                     if(!file1.mkdirs()) throw new Exception("Could not make path");
                 } catch (Exception e)
                 {
