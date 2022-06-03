@@ -13,11 +13,12 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        String css = this.getClass().getResource("lightMode.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setMaximized(true);
-        stage.setTitle("Greetings!");
+        stage.setTitle("COnee");
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void main(String[] args) {

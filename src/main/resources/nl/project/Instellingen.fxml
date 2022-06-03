@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SettingsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SettingsController">
    <center>
       <AnchorPane prefHeight="708.0" prefWidth="1059.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -165,7 +165,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor></ChoiceBox>
                         <Separator orientation="VERTICAL" prefHeight="87.0" prefWidth="126.0" visible="false" />
-                        <Button fx:id="btnProfile112" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="58.0" prefWidth="230.0" style="-fx-background-color: #3944F7;" text="Submit" textAlignment="CENTER">
+                        <Button fx:id="btnProfile112" alignment="CENTER" mnemonicParsing="false" onAction="#ThemeButtonClicked" prefHeight="58.0" prefWidth="230.0" style="-fx-background-color: #3944F7;" text="Submit" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>

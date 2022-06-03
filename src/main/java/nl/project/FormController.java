@@ -19,6 +19,21 @@ public class FormController implements Initializable {
     private Stage stage;
     private Scene scene;
 
+    //Check theme and adding to scene by using contains statement
+    public void setTheme(){
+        String css = "";
+        String currentCss = scene.getStylesheets().toString();
+        scene.getStylesheets().remove(currentCss);
+
+        if(currentCss.contains("lightMode.css")){
+            css = this.getClass().getResource("lightMode.css").toExternalForm();
+        }
+        else if(currentCss.contains("darkMode.css")){
+            css = this.getClass().getResource("darkMode.css").toExternalForm();
+        }
+        scene.getStylesheets().add(css);
+    }
+
     @FXML
     Button formToProfile;
     @FXML
@@ -31,6 +46,7 @@ public class FormController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        setTheme();
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);
