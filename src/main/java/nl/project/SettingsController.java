@@ -47,36 +47,52 @@ public class SettingsController implements Initializable {
         return theme;
     }
 
-    //Check theme and adding to all scenes by using contains statement
-    public void setTheme(){
-        String css = "";
-        String currentCss = scene.getStylesheets().toString();
-        scene.getStylesheets().remove(currentCss);
-
-        if(currentCss.contains("lightMode.css")){
-            css = this.getClass().getResource("lightMode.css").toExternalForm();
+    public String getTheme(){
+        if(scene.getStylesheets().toString().contains("lightMode.css")){
+            System.out.println("Found Theme");
+            return scene.getStylesheets().toString();
         }
-        else if(currentCss.contains("darkMode.css")){
-            css = this.getClass().getResource("darkMode.css").toExternalForm();
+        else if(scene.getStylesheets().toString().contains("darkMode.css")){
+            System.out.println("Found Theme");
+            return scene.getStylesheets().toString();
         }
         else{
-            css = this.getClass().getResource("lightMode.css").toExternalForm();
+            System.out.printf(scene.getStylesheets().toString());
+            return "lightMode.css";
         }
-        scene.getStylesheets().add(css);
+    }
+
+    //Check theme and adding to scene by using contains statement
+    public String setTheme(){
+        if(getTheme().contains("lightMode.css")){
+            return "lightMode.css";
+        }
+        else if(getTheme().contains("darkMode.css")){
+            return "darkMode.css";
+        }
+        else{
+            return "lightMode.css";
+        }
     }
 
     @FXML
     void ThemeButtonClicked(ActionEvent event) {
-
         if(getThemeCBox(themeCbox).equals("Blauw/Wit")){
-            String css = this.getClass().getResource("lightMode.css").toExternalForm();
-            setTheme();
+
         }
         else if(getThemeCBox(themeCbox).equals("Paars/Zwart")){
 
         }
-    }
+        else if(getThemeCBox(themeCbox).equals("Rood/Zwart")){
 
+        }
+        else if(getThemeCBox(themeCbox).equals("Geel/Wit")){
+
+        }
+        else if(getThemeCBox(themeCbox).equals("Paars/Wit")){
+
+        }
+    }
 
     //Menu
     @FXML
@@ -94,34 +110,31 @@ public class SettingsController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
-        setTheme();
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
-        stage.setTitle("Greetings!");
+        stage.setTitle("COnee");
         stage.setScene(scene);
         stage.show();
-
     }
     @FXML
     public void FormButtonClicked(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
-        setTheme();
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
-        stage.setTitle("Greetings!");
+        stage.setTitle("COnee");
         stage.setScene(scene);
         stage.show();
-
     }
     @FXML
     public void RanklistButtonClicked(ActionEvent event) throws Exception {
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ranglijst.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
-        setTheme();
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
-        stage.setTitle("Greetings!");
+        stage.setTitle("COnee");
         stage.setScene(scene);
         stage.show();
     }
@@ -130,9 +143,9 @@ public class SettingsController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
-        setTheme();
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
-        stage.setTitle("Greetings!");
+        stage.setTitle("COnee");
         stage.setScene(scene);
         stage.show();
     }

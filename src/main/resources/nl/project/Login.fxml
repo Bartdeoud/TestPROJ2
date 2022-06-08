@@ -14,7 +14,7 @@
    <center>
       <AnchorPane fx:id="loginAnchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="titleLabel" alignment="CENTER" layoutX="593.0" layoutY="105.0" prefHeight="203.0" prefWidth="752.0" style="-fx-border-color: #c7b4ff#; -fx-border-width: 5;" text="COnee" textAlignment="CENTER" underline="true">
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="593.0" layoutY="105.0" prefHeight="203.0" prefWidth="752.0" text="COnee" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Arial Bold" size="71.0" />
                </font>

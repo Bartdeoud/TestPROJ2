@@ -19,21 +19,6 @@ public class FormController implements Initializable {
     private Stage stage;
     private Scene scene;
 
-    //Check theme and adding to scene by using contains statement
-    public void setTheme(){
-        String css = "";
-        String currentCss = scene.getStylesheets().toString();
-        scene.getStylesheets().remove(currentCss);
-
-        if(currentCss.contains("lightMode.css")){
-            css = this.getClass().getResource("lightMode.css").toExternalForm();
-        }
-        else if(currentCss.contains("darkMode.css")){
-            css = this.getClass().getResource("darkMode.css").toExternalForm();
-        }
-        scene.getStylesheets().add(css);
-    }
-
     @FXML
     Button formToProfile;
     @FXML
@@ -41,24 +26,52 @@ public class FormController implements Initializable {
     @FXML
     Button formToSettings;
 
+    public String getTheme(){
+        if(scene.getStylesheets().toString().contains("lightMode.css")){
+            System.out.println("Found Theme");
+            return scene.getStylesheets().toString();
+        }
+        else if(scene.getStylesheets().toString().contains("darkMode.css")){
+            System.out.println("Found Theme");
+            return scene.getStylesheets().toString();
+        }
+        else{
+            System.out.printf(scene.getStylesheets().toString());
+            return "lightMode.css";
+        }
+    }
+
+    public String setTheme(){
+
+        if(getTheme().contains("lightMode.css")){
+            return "lightMode.css";
+        }
+        else if(getTheme().contains("darkMode.css")){
+            return "darkMode.css";
+        }
+        else{
+            return "lightMode.css";
+        }
+    }
+
     @FXML
     public void ProfileButtonClicked(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
-        setTheme();
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
-        stage.setTitle("Greetings!");
+        stage.setTitle("COnee");
         stage.setScene(scene);
         stage.show();
 
     }
     @FXML
     public void RanklistButtonClicked(ActionEvent event) throws Exception {
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ranglijst.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);
@@ -69,6 +82,7 @@ public class FormController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);

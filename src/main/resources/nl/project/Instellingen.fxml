@@ -16,10 +16,66 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SettingsController">
-   <center>
-      <AnchorPane prefHeight="708.0" prefWidth="1059.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="21.0" layoutY="184.0" prefHeight="875.0" prefWidth="1680.0">
+            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
+            <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Profiel" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
+            <Button fx:id="btnForm" alignment="CENTER" mnemonicParsing="false" onAction="#FormButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Invullen" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
+            <Button fx:id="btnRanklist" alignment="CENTER" mnemonicParsing="false" onAction="#RanklistButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Ranglijst" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
+            <Button fx:id="btnSettings" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Instellingen" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <right>
+      <AnchorPane prefHeight="1080.0" prefWidth="1660.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="vbox" layoutX="31.0" layoutY="180.0" prefHeight="540.0" prefWidth="1250.0">
                <children>
                   <HBox prefHeight="87.5" prefWidth="200.0">
                      <children>
@@ -35,7 +91,7 @@
                            </font>
                         </TextField>
                         <Separator orientation="VERTICAL" prefHeight="87.0" prefWidth="126.0" visible="false" />
-                        <Button fx:id="btnProfile1" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="58.0" prefWidth="230.0" style="-fx-background-color: #3944F7;" text="Submit" textAlignment="CENTER">
+                        <Button fx:id="submitBtn" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="58.0" prefWidth="230.0" text="Submit" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -76,7 +132,7 @@
                            </font>
                         </TextField>
                         <Separator orientation="VERTICAL" prefHeight="87.0" prefWidth="126.0" visible="false" />
-                        <Button fx:id="btnProfile111" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="58.0" prefWidth="230.0" style="-fx-background-color: #3944F7;" text="Submit" textAlignment="CENTER">
+                        <Button fx:id="submitBtn" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="58.0" prefWidth="230.0" text="Submit" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -109,7 +165,7 @@
                            </cursor>
                         </TextField>
                         <Separator orientation="VERTICAL" prefHeight="87.0" prefWidth="126.0" visible="false" />
-                        <Button fx:id="btnProfile11" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="58.0" prefWidth="230.0" style="-fx-background-color: #3944F7;" text="Submit" textAlignment="CENTER">
+                        <Button fx:id="submitBtn" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="58.0" prefWidth="230.0" text="Submit" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -165,7 +221,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor></ChoiceBox>
                         <Separator orientation="VERTICAL" prefHeight="87.0" prefWidth="126.0" visible="false" />
-                        <Button fx:id="btnProfile112" alignment="CENTER" mnemonicParsing="false" onAction="#ThemeButtonClicked" prefHeight="58.0" prefWidth="230.0" style="-fx-background-color: #3944F7;" text="Submit" textAlignment="CENTER">
+                        <Button fx:id="submitBtn" alignment="CENTER" mnemonicParsing="false" onAction="#ThemeButtonClicked" prefHeight="58.0" prefWidth="230.0" text="Submit" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -181,73 +237,13 @@
                         </Button>
                      </children>
                   </HBox>
-                  <HBox prefHeight="87.5" prefWidth="200.0" />
-                  <HBox prefHeight="87.5" prefWidth="200.0" />
-                  <HBox prefHeight="87.5" prefWidth="200.0" />
-                  <HBox prefHeight="87.5" prefWidth="200.0" />
                </children>
             </VBox>
-            <Label alignment="CENTER" layoutX="623.0" layoutY="36.0" prefHeight="108.0" prefWidth="432.0" text="Instellingen" textAlignment="CENTER">
+            <Label fx:id="labelSettings" alignment="CENTER" layoutX="441.0" layoutY="46.0" prefHeight="108.0" prefWidth="735.0" text="Instellingen" textAlignment="CENTER">
                <font>
                   <Font name="Arial" size="50.0" />
                </font>
             </Label>
          </children></AnchorPane>
-   </center>
-   <left>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 0 2 0 0; -fx-border-color: black; -fx-background-color: white;" BorderPane.alignment="CENTER">
-         <children>
-            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="settingToProfile" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Profiel" textAlignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow />
-               </effect></Button>
-            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="settingToForm" alignment="CENTER" mnemonicParsing="false" onAction="#FormButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Invullen" textAlignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="settingToRanklist" alignment="CENTER" mnemonicParsing="false" onAction="#RanklistButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Ranglijst" textAlignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="settingToSettings" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Instellingen" textAlignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-         </children>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-      </VBox>
-   </left>
+   </right>
 </BorderPane>

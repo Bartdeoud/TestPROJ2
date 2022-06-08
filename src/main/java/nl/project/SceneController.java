@@ -7,34 +7,13 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.w3c.dom.ls.LSOutput;
 
 public class SceneController {
 
 
     private Stage stage;
     private Scene scene;
-
-
-    public String getTheme(){
-      return scene.getStylesheets().toString();
-    }
-
-    //Check theme and adding to scene by using contains statement
-    public void setTheme(){
-        String css = "";
-
-        if(getTheme().contains("lightMode.css")){
-            css = scene.getClass().getResource("lightMode.css").toExternalForm();
-        }
-        else if(getTheme().contains("darkMode.css")){
-            css = scene.getClass().getResource("darkMode.css").toExternalForm();
-        }
-        else if(getTheme() == null){
-            css = scene.getClass().getResource("lightMode.css").toExternalForm();
-        }
-        scene.getStylesheets().add(css);
-    }
-
 
     //Menu
     @FXML
@@ -46,14 +25,43 @@ public class SceneController {
     @FXML
     Button btnSettings;
 
+    public String getTheme(){
+        if(scene.getStylesheets().toString().contains("lightMode.css")){
+            System.out.println("Found Theme");
+            return scene.getStylesheets().toString();
+        }
+        else if(scene.getStylesheets().toString().contains("darkMode.css")){
+            System.out.println("Found Theme");
+            return scene.getStylesheets().toString();
+        }
+        else{
+            System.out.printf(scene.getStylesheets().toString());
+            return "lightMode.css";
+        }
+    }
+
+    //Check theme and adding to scene by using contains statement
+    public String setTheme(){
+
+        if(getTheme().contains("lightMode.css")){
+            return "lightMode.css";
+        }
+        else if(getTheme().contains("darkMode.css")){
+            return "darkMode.css";
+        }
+        else{
+            return "lightMode.css";
+        }
+    }
+
     @FXML
     public void ProfileButtonClicked(ActionEvent event) throws Exception {
-        setTheme();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
-        stage.setTitle("Greetings!");
+        stage.setTitle("COnee");
         stage.setScene(scene);
         stage.show();
     }
@@ -63,6 +71,7 @@ public class SceneController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);
@@ -74,6 +83,7 @@ public class SceneController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ranglijst.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);
@@ -85,6 +95,7 @@ public class SceneController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);
