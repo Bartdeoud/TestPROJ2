@@ -37,15 +37,18 @@ public class AdminPanel
     TextField TFPoints;
     @FXML
     TextField TFAccesslevel;
+    @FXML
+    TextField TFUserNameToChange;
 
     @FXML
     public void ChangeUser(ActionEvent event) throws Exception {
-
+        String query = String.format("UPDATE [Users] SET Password = \"%s\", Points = '%s', AccessLevel = '%s' WHERE UserName = \"%s\"",TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText(),TFUserNameToChange.getText());
+        database.runQuery(query);
     }
 
     @FXML
     public void AddUser(ActionEvent event) throws Exception {
-        String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel]) VALUES (\"%s\",\"%s\",%s,%s)",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText());
+        String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel]) VALUES (\"%s\",\"%s\",%s,%s)",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFUserNameToChange.getText());
         database.runQuery(query);
     }
 

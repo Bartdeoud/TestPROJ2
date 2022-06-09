@@ -56,6 +56,11 @@
                         </HBox>
                   <HBox prefHeight="85.0" prefWidth="1680.0">
                      <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User name to Change" wrappingWidth="224.13671875">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User name" wrappingWidth="224.13671875">
                            <font>
                               <Font size="40.0" />
@@ -80,6 +85,7 @@
                   </HBox>
                   <HBox prefHeight="304.0" prefWidth="1680.0">
                      <children>
+                        <TextField fx:id="TFUserNameToChange" prefHeight="73.0" prefWidth="223.0" />
                         <TextField fx:id="TFUsername" prefHeight="73.0" prefWidth="223.0" />
                         <TextField fx:id="TFPassword" prefHeight="73.0" prefWidth="223.0" />
                         <TextField fx:id="TFPoints" prefHeight="73.0" prefWidth="223.0" />
