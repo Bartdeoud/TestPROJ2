@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SceneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SceneController">
    <center>
       <AnchorPane prefHeight="708.0" prefWidth="1059.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -497,7 +497,7 @@
                </effect>
             </Button>
             <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="profielToAdminPanel" alignment="CENTER" mnemonicParsing="false" onAction="#profielToAdminPanelClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Admin Panel" textAlignment="CENTER">
+            <Button fx:id="profielToAdminPanel" alignment="CENTER" mnemonicParsing="false" onAction="#profielToAdminPanelClicked" prefHeight="100.0" prefWidth="198.0" text="Admin Panel" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

@@ -42,19 +42,30 @@ public class AdminPanel
 
     @FXML
     public void ChangeUser(ActionEvent event) throws Exception {
-        String query = String.format("UPDATE [Users] SET Password = \"%s\", Points = '%s', AccessLevel = '%s' WHERE UserName = \"%s\"",TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText(),TFUserNameToChange.getText());
+        String query = String.format("UPDATE [Users] SET UserName = \"%s\", Password = \"%s\", Points = '%s', AccessLevel = '%s' WHERE UserName = \"%s\"",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText(),TFUserNameToChange.getText());
+        System.out.println(query);
         database.runQuery(query);
+        clearTextFields();
     }
 
     @FXML
     public void AddUser(ActionEvent event) throws Exception {
-        String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel]) VALUES (\"%s\",\"%s\",%s,%s)",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFUserNameToChange.getText());
+        String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel]) VALUES (\"%s\",\"%s\",%s,%s)",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText());
         database.runQuery(query);
+        clearTextFields();
     }
 
     public String getDatabase(){
         String filePath = new File("").getAbsolutePath();
         return filePath + "/Databases/project2db.mdb";
+    }
+
+    public void clearTextFields(){
+        TFUserNameToChange.setText("");
+        TFUsername.setText("");
+        TFPassword.setText("");
+        TFPoints.setText("");
+        TFAccesslevel.setText("");
     }
 
     @FXML
