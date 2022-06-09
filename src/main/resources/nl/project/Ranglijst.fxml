@@ -15,13 +15,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.RankingController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.RankingController">
    <center>
       <AnchorPane prefHeight="708.0" prefWidth="1059.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="21.0" layoutY="26.0" prefHeight="100.0" prefWidth="500.0" style="-fx-background-color: #3944F7; -fx-border-color: black;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <Pane fx:id="userPane" layoutX="21.0" layoutY="26.0" prefHeight="100.0" prefWidth="500.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                <children>
-                  <Pane layoutX="75.0" layoutY="7.0" prefHeight="87.0" prefWidth="87.0" style="-fx-background-color: #afafaf; -fx-background-radius: 75;" />
+                  <Pane fx:id="userImg" layoutX="75.0" layoutY="7.0" prefHeight="87.0" prefWidth="87.0" />
                   <ProgressBar layoutX="174.0" layoutY="70.0" prefWidth="200.0" progress="0.75" />
                   <Text layoutX="181.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Olieman" wrappingWidth="186.46092987060547">
                      <font>
@@ -30,19 +30,40 @@
                   </Text>
                </children>
             </Pane>
-            <Label fx:id="RankLabel" alignment="CENTER" layoutX="8.0" layoutY="184.0" prefHeight="58.0" prefWidth="1705.0" style="-fx-background-color: #3944F7;" text="Selecteer een user" textAlignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Label>
-            <ListView fx:id="RankListView" layoutX="8.0" layoutY="245.0" prefHeight="824.0" prefWidth="1706.0" style="-fx-background-color: #3944F7;" />
+            <Pane fx:id="ranklistPane" layoutX="20.0" layoutY="190.0" prefHeight="567.0" prefWidth="714.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="57.0" layoutY="7.0" prefHeight="36.0" prefWidth="601.0" text="Selecteer een gebruiker" textAlignment="CENTER">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="59.0" prefHeight="36.0" prefWidth="95.0" text="Naam" textAlignment="CENTER">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="238.0" layoutY="59.0" prefHeight="36.0" prefWidth="95.0" text="Naam" textAlignment="CENTER">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="476.0" layoutY="59.0" prefHeight="36.0" prefWidth="95.0" text="Naam" textAlignment="CENTER">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="RankListView" layoutY="88.0" prefHeight="478.0" prefWidth="238.0" />
+                  <ListView fx:id="RankListView2" layoutX="238.0" layoutY="88.0" prefHeight="478.0" prefWidth="238.0" />
+                  <ListView fx:id="RankListView3" layoutX="476.0" layoutY="88.0" prefHeight="478.0" prefWidth="238.0" />
+               </children>
+            </Pane>
          </children></AnchorPane>
    </center>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 0 2 0 0; -fx-border-color: black; -fx-background-color: white;" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="rankToProfile" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Profiel" textAlignment="CENTER">
+            <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Profiel" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -53,7 +74,7 @@
                   <DropShadow />
                </effect></Button>
             <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="rankToform" alignment="CENTER" mnemonicParsing="false" onAction="#FormButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Invullen" textAlignment="CENTER">
+            <Button fx:id="btnForm" alignment="CENTER" mnemonicParsing="false" onAction="#FormButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Invullen" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -65,7 +86,7 @@
                </effect>
             </Button>
             <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="rankToRank" alignment="CENTER" mnemonicParsing="false" onAction="#RanklistButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Ranglijst" textAlignment="CENTER">
+            <Button fx:id="btnRanklist" alignment="CENTER" mnemonicParsing="false" onAction="#RanklistButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Ranglijst" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -77,7 +98,7 @@
                </effect>
             </Button>
             <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="rankToSettings" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Instellingen" textAlignment="CENTER">
+            <Button fx:id="btnSettings" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Instellingen" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

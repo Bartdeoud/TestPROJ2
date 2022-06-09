@@ -10,26 +10,26 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SceneController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SceneController">
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #3944F7; -fx-border-width: 5;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="loginAnchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="593.0" layoutY="105.0" prefHeight="203.0" prefWidth="752.0" style="-fx-border-color: #3944F7; -fx-border-width: 5;" text="COnee" textAlignment="CENTER" textFill="#3944f7">
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="593.0" layoutY="105.0" prefHeight="203.0" prefWidth="752.0" text="COnee" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Arial Bold" size="71.0" />
                </font>
             </Label>
-            <PasswordField layoutX="736.0" layoutY="820.0" prefHeight="77.0" prefWidth="445.0" promptText="Wachtwoord">
+            <PasswordField fx:id="passwordField" layoutX="736.0" layoutY="820.0" prefHeight="77.0" prefWidth="445.0" promptText="Wachtwoord">
                <font>
                   <Font size="27.0" />
                </font>
             </PasswordField>
-            <TextField layoutX="737.0" layoutY="708.0" prefHeight="77.0" prefWidth="445.0" promptText="Gebruikersnaam">
+            <TextField fx:id="textField" layoutX="737.0" layoutY="708.0" prefHeight="77.0" prefWidth="445.0" promptText="Gebruikersnaam">
                <font>
                   <Font size="27.0" />
                </font>
             </TextField>
-            <Button fx:id="btnProfile1" alignment="CENTER" layoutX="1217.0" layoutY="838.0" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="55.0" prefWidth="256.0" style="-fx-background-color: #3944F7;" text="Login" textAlignment="CENTER" textFill="#fcfcfc">
+            <Button fx:id="btnProfile1" alignment="CENTER" layoutX="1217.0" layoutY="838.0" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="55.0" prefWidth="256.0" text="Login" textAlignment="CENTER">
                <font>
                   <Font size="27.0" />
                </font>
