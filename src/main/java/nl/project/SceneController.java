@@ -22,7 +22,7 @@ public class SceneController {
 
     //Menu
     @FXML
-    Button btnProfile;
+    Button btnProfile1;
     @FXML
     Button btnForm;
     @FXML
