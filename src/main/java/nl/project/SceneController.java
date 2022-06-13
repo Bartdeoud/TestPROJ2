@@ -1,21 +1,20 @@
 package nl.project;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.w3c.dom.ls.LSOutput;
 
-import java.io.File;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import static nl.project.Login.*;
 
-public class SceneController {
-
+public class SceneController
+{
 
     private Stage stage;
     private Scene scene;
@@ -30,7 +29,7 @@ public class SceneController {
     @FXML
     Button btnSettings;
     @FXML
-    Button profielToAdminPanel;
+    public Button profielToAdminPanel;
     @FXML
     TextField Username;
     @FXML
@@ -79,11 +78,12 @@ public class SceneController {
 
     @FXML
     public void ProfileButtonClicked(ActionEvent event) throws Exception {
-        if(login())
+        if(login(Username.getText(), password.getText()))
         {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader.load());
+            scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
             stage.setMaximized(true);
             stage.setTitle("Greetings!");
             stage.setScene(scene);
@@ -127,25 +127,11 @@ public class SceneController {
         stage.show();
     }
 
-    public boolean login(){
-        String filePath = new File("").getAbsolutePath();
-        String name = Username.getText();
-        String password1 = null;
-        DataHandler database = new DataHandler(filePath + "/Databases/project2db.mdb");
-        ResultSet rs = database.getData("SELECT * FROM [Users]");
-        try
-        {
-            while (rs.next())
-            {
-                if(rs.getString("UserName").equals(name)){
-                    password1 = rs.getString("Password");
-                }
-            }
-        } catch (SQLException throwables)
-        {
-            throwables.printStackTrace();
+    //if user has admin permissions give access to admin panel
+    @FXML
+    public void initialize() {
+        if(accessLevel == 1){
+            profielToAdminPanel.setVisible(true);
         }
-        if(password1 == null) return false;
-        return password.getText().equals(password1);
     }
 }

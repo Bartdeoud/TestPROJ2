@@ -41,7 +41,7 @@ public class AdminPanel
     TextField TFUserNameToChange;
 
     @FXML
-    public void ChangeUser(ActionEvent event) throws Exception {
+    public void ChangeUser(ActionEvent event) {
         String query = String.format("UPDATE [Users] SET UserName = \"%s\", Password = \"%s\", Points = '%s', AccessLevel = '%s' WHERE UserName = \"%s\"",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText(),TFUserNameToChange.getText());
         System.out.println(query);
         database.runQuery(query);
@@ -49,7 +49,7 @@ public class AdminPanel
     }
 
     @FXML
-    public void AddUser(ActionEvent event) throws Exception {
+    public void AddUser(ActionEvent event) {
         String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel]) VALUES (\"%s\",\"%s\",%s,%s)",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText());
         database.runQuery(query);
         clearTextFields();
@@ -69,7 +69,7 @@ public class AdminPanel
     }
 
     @FXML
-    public void LoadUsers(ActionEvent event) throws Exception {
+    public void LoadUsers(ActionEvent event) {
         textAreaUsers.setText("");
         ResultSet rs = database.getData("SELECT * FROM [Users]");
         try

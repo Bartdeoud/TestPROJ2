@@ -497,7 +497,7 @@
                </effect>
             </Button>
             <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-            <Button fx:id="profielToAdminPanel" alignment="CENTER" mnemonicParsing="false" onAction="#profielToAdminPanelClicked" prefHeight="100.0" prefWidth="198.0" text="Admin Panel" textAlignment="CENTER">
+            <Button fx:id="profielToAdminPanel" alignment="CENTER" mnemonicParsing="false" onAction="#profielToAdminPanelClicked" prefHeight="100.0" prefWidth="198.0" text="Admin Panel" textAlignment="CENTER" visible="false">
                <font>
                   <Font size="24.0" />
                </font>
