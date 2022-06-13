@@ -2,7 +2,7 @@
 /*https://www.color-hex.com/color-palette/1013336*/
 
 /*---------Side Buttons---------*/
-#btnProfile, #btnForm, #btnRanklist, #btnSettings{
+#btnProfile, #btnForm, #btnRanklist, #btnSettings, #profielToAdminPanel{
     -fx-background-color: #9571ff;
     -fx-text-fill: #f8f5ff;
 }
@@ -14,7 +14,7 @@
     -fx-background-color: #f8f5ff;
 }
 
-#titleLabel, #passwordField, #textField{
+#titleLabel, #password, #Username{
     -fx-color: #e1d7ff;
     -fx-text-fill: #b095ff;
     -fx-border-color: #c7b4ff;
@@ -91,3 +91,9 @@
     -fx-background-color: #e1d7ff;
 }
 
+/*---------AdminPanel---------*/
+
+#btnAPGetUsers, #btnChangeUser, #btnAddUser{
+    -fx-background-color: #9571ff;
+    -fx-text-fill: #f8f5ff;
+}

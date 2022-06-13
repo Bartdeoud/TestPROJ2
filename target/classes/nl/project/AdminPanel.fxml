@@ -35,10 +35,10 @@
                         </HBox>
                         <HBox prefHeight="292.0" prefWidth="1680.0">
                             <children>
-                        <TextArea fx:id="textAreaUsers" editable="false" prefHeight="69.0" prefWidth="321.0" text="asdf" />
+                        <TextArea fx:id="textAreaUsers" editable="false" prefHeight="69.0" prefWidth="321.0" />
                                 <Separator orientation="VERTICAL" prefHeight="87.0" prefWidth="477.0" visible="false" />
                                 <Separator orientation="VERTICAL" prefHeight="87.0" prefWidth="126.0" visible="false" />
-                                <Button fx:id="btnAPGetUsers" alignment="CENTER" mnemonicParsing="false" onAction="#LoadUsers" prefHeight="58.0" prefWidth="230.0" style="-fx-background-color: #3944F7;" text="Get users" textAlignment="CENTER">
+                                <Button fx:id="btnAPGetUsers" alignment="CENTER" mnemonicParsing="false" onAction="#LoadUsers" prefHeight="58.0" prefWidth="230.0" text="Get users" textAlignment="CENTER">
                                     <font>
                                         <Font size="24.0" />
                                     </font>
@@ -90,7 +90,7 @@
                         <TextField fx:id="TFPassword" prefHeight="73.0" prefWidth="223.0" />
                         <TextField fx:id="TFPoints" prefHeight="73.0" prefWidth="223.0" />
                         <TextField fx:id="TFAccesslevel" prefHeight="73.0" prefWidth="223.0" />
-                        <Button fx:id="btnChangeUser" alignment="CENTER" mnemonicParsing="false" onAction="#ChangeUser" prefHeight="71.0" prefWidth="244.0" style="-fx-background-color: #3944F7;" text="Change user" textAlignment="CENTER">
+                        <Button fx:id="btnChangeUser" alignment="CENTER" mnemonicParsing="false" onAction="#ChangeUser" prefHeight="71.0" prefWidth="244.0" text="Change user" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -101,7 +101,7 @@
                               <DropShadow />
                            </effect>
                         </Button>
-                        <Button fx:id="btnAddUser" alignment="CENTER" mnemonicParsing="false" onAction="#AddUser" prefHeight="71.0" prefWidth="244.0" style="-fx-background-color: #3944F7;" text="Add user" textAlignment="CENTER">
+                        <Button fx:id="btnAddUser" alignment="CENTER" mnemonicParsing="false" onAction="#AddUser" prefHeight="71.0" prefWidth="244.0" text="Add user" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -127,7 +127,7 @@
         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" style="-fx-border-width: 0 2 0 0; -fx-border-color: black; -fx-background-color: white;" BorderPane.alignment="CENTER">
             <children>
                 <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-                <Button fx:id="settingToProfile" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Profiel" textAlignment="CENTER">
+                <Button fx:id="btnProfile" alignment="CENTER" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Profiel" textAlignment="CENTER">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -138,7 +138,7 @@
                         <DropShadow />
                     </effect></Button>
                 <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-                <Button fx:id="settingToForm" alignment="CENTER" mnemonicParsing="false" onAction="#FormButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Invullen" textAlignment="CENTER">
+                <Button fx:id="btnForm" alignment="CENTER" mnemonicParsing="false" onAction="#FormButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Invullen" textAlignment="CENTER">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -150,7 +150,7 @@
                     </effect>
                 </Button>
                 <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-                <Button fx:id="settingToRanklist" alignment="CENTER" mnemonicParsing="false" onAction="#RanklistButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Ranglijst" textAlignment="CENTER">
+                <Button fx:id="btnRanklist" alignment="CENTER" mnemonicParsing="false" onAction="#RanklistButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Ranglijst" textAlignment="CENTER">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -162,7 +162,7 @@
                     </effect>
                 </Button>
                 <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
-                <Button fx:id="settingToSettings" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Instellingen" textAlignment="CENTER">
+                <Button fx:id="btnSettings" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Instellingen" textAlignment="CENTER">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -174,7 +174,7 @@
                     </effect>
                 </Button>
             <Separator prefHeight="40.0" prefWidth="198.0" />
-            <Button fx:id="settingToSettings1" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" style="-fx-background-color: #3944F7;" text="Admin Panel" textAlignment="CENTER">
+            <Button fx:id="settingToSettings1" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Admin" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>

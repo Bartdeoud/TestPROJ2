@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SettingsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.SettingsController">
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -56,6 +56,18 @@
             </Button>
             <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
             <Button fx:id="btnSettings" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Instellingen" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Separator prefHeight="43.0" prefWidth="198.0" visible="false" />
+            <Button fx:id="profielToAdminPanel" alignment="CENTER" mnemonicParsing="false" onAction="#SettingsButtonClicked" prefHeight="100.0" prefWidth="198.0" text="Admin" textAlignment="JUSTIFY" visible="false">
                <font>
                   <Font size="24.0" />
                </font>
