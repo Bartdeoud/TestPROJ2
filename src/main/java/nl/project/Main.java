@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -13,9 +14,8 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        String css = this.getClass().getResource("lightMode.css").toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("lightMode.css")).toExternalForm();
         scene.getStylesheets().add(css);
-
         stage.setMaximized(true);
         stage.setTitle("COnee");
         stage.setScene(scene);

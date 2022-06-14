@@ -10,18 +10,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Objects;
 
 import static Handlers.Login.*;
 
 public class SceneController extends Controller
 {
 
-    private Stage stage;
-    private Scene scene;
-
     //Menu
-    @FXML
-    Button btnProfile1;
     @FXML
     Button btnForm;
     @FXML
@@ -30,10 +26,6 @@ public class SceneController extends Controller
     Button btnSettings;
     @FXML
     public Button profielToAdminPanel;
-    @FXML
-    TextField Username;
-    @FXML
-    TextField password;
 
     //if user has admin permissions give access to admin panel
     @FXML
@@ -45,8 +37,10 @@ public class SceneController extends Controller
     @FXML
     public void profielToAdminPanelClicked(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminPanel.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load());
+        String css = Objects.requireNonNull(this.getClass().getResource("lightMode.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setMaximized(true);
         stage.setTitle("COnee");
         stage.setScene(scene);

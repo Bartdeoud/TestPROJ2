@@ -8,6 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
+
 public abstract class Controller {
 
     private Stage stage;
@@ -28,6 +31,8 @@ public abstract class Controller {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        String css = Objects.requireNonNull(this.getClass().getResource("lightMode.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setMaximized(true);
         stage.setTitle("COnee");
         stage.setScene(scene);
@@ -38,6 +43,8 @@ public abstract class Controller {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        String css = Objects.requireNonNull(this.getClass().getResource("lightMode.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);
@@ -48,6 +55,8 @@ public abstract class Controller {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ranglijst.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        String css = Objects.requireNonNull(this.getClass().getResource("lightMode.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);
@@ -58,6 +67,8 @@ public abstract class Controller {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load());
+        String css = Objects.requireNonNull(this.getClass().getResource("lightMode.css")).toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setMaximized(true);
         stage.setTitle("Greetings!");
         stage.setScene(scene);
