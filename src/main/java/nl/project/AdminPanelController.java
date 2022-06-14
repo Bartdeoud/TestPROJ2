@@ -16,11 +16,16 @@ import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AdminPanelController extends Controller
-{
+public class AdminPanelController extends Controller {
+    /**
+     * Child class of Controller
+     * Used to control the behaviour of the Admin panel scene
+     */
 
+    // Initialize variables
     private final DataHandler database = new DataHandler(getDatabase());
 
+    // Initialize FXML variables
     @FXML
     Button btnAPGetUsers;
     @FXML
@@ -40,6 +45,8 @@ public class AdminPanelController extends Controller
     @FXML
     TextField TFUserNameToChange;
 
+
+    // Modify the defined users attributes to the given attributes in the database
     @FXML
     public void ChangeUser(ActionEvent event) {
         String query = String.format("UPDATE [Users] SET UserName = \"%s\", Password = \"%s\", Points = '%s', AccessLevel = '%s' WHERE UserName = \"%s\"",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText(),TFUserNameToChange.getText());
@@ -48,6 +55,7 @@ public class AdminPanelController extends Controller
         clearTextFields();
     }
 
+    // Adds an user with the given attributes to the database
     @FXML
     public void AddUser(ActionEvent event) {
         String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel]) VALUES (\"%s\",\"%s\",%s,%s)",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText());
@@ -55,11 +63,13 @@ public class AdminPanelController extends Controller
         clearTextFields();
     }
 
+    //  Get the filepath of the database
     public String getDatabase(){
         String filePath = new File("").getAbsolutePath();
         return filePath + "/Databases/project2db.mdb";
     }
 
+    // Clear the used textfields so you can easily use them again
     public void clearTextFields(){
         TFUserNameToChange.setText("");
         TFUsername.setText("");
@@ -68,6 +78,7 @@ public class AdminPanelController extends Controller
         TFAccesslevel.setText("");
     }
 
+    // Get the list of users from the database
     @FXML
     public void LoadUsers(ActionEvent event) {
         textAreaUsers.setText("");

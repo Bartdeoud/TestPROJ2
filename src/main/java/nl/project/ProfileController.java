@@ -6,18 +6,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.net.URL;
 import java.util.Objects;
 
 import static Handlers.Login.*;
 
-public class SceneController extends Controller
-{
+public class ProfileController extends Controller {
+    /**
+     * Child class of Controller
+     * Used to control the behaviour of the Profiel scene
+     */
 
-    //Menu
+    // Initialize FXML variables
     @FXML
     Button btnForm;
     @FXML
@@ -27,13 +28,16 @@ public class SceneController extends Controller
     @FXML
     public Button profielToAdminPanel;
 
-    //if user has admin permissions give access to admin panel
+    // Implement the initialize method from the interface Initializable
+    // If user has admin permissions give access to admin panel
     @FXML
     public void initialize() {
         if (accessLevel == 1) {
             profielToAdminPanel.setVisible(true);
         }
     }
+
+    // Change the current scene to the admin panel scene
     @FXML
     public void profielToAdminPanelClicked(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminPanel.fxml"));

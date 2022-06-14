@@ -13,13 +13,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SettingsController extends Controller implements Initializable {
+    /**
+     * Child class of Controller
+     * Used to control the behaviour of the Settings scene
+     */
 
+    // Initialize variables
+    String[] themes = {"Blauw/Wit", "Paars/Zwart", "Rood/Zwart", "Geel/Wit", "Roze/Wit"};
+
+    // Initialize FXML variable
     @FXML
     private ChoiceBox<String> themeCbox;
 
-    String[] themes = {"Blauw/Wit", "Paars/Zwart", "Rood/Zwart", "Geel/Wit", "Roze/Wit"};
-
-
+    // Implement the initialize method from the interface Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         themeCbox.getItems().addAll(themes);
@@ -31,6 +37,7 @@ public class SettingsController extends Controller implements Initializable {
         return theme;
     }
 
+    // Opens dropdown menu with themes
     @FXML
     void ThemeButtonClicked(ActionEvent event) {
         if(getThemeCBox(themeCbox).equals("Blauw/Wit")){

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class Login
 {
+    // Initialize variables
     public static String loggedInUser;
     public static int accessLevel;
     private static final DataHandler database = getDatabase();

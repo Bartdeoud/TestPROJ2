@@ -13,17 +13,23 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RankingController extends Controller implements Initializable {
+    /**
+     * Child class of Controller
+     * Used to control the behaviour of the Ranking scene
+     */
 
+    // Initialize variables
+    String[] name = {"1.  Bart", "2. Mark", "3.  Hidde", "4. Kevin", "5. Ruben"};
+    private String CurrentUser;
+
+    // Initialize FXML variables
     @FXML
     private ListView<String> RankListView;
     @FXML
     private Label RankLabel;
 
-    private String CurrentUser;
-
-    String[] name = {"1.  Bart", "2. Mark", "3.  Hidde", "4. Kevin", "5. Ruben"};
-
-
+    // Implement the initialize method from the interface Initializable
+    // And loads the ranklist with users
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         RankListView.getItems().addAll(name);

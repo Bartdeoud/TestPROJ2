@@ -10,16 +10,24 @@ import javafx.stage.Stage;
 
 import static Handlers.Login.login;
 
-public class LoginController extends Controller
-{
+public class LoginController extends Controller {
+    /**
+     * Child class of Controller
+     * Used to control the behaviour of the Login scene
+     */
+
+    // Initialize variables
+    Stage stage;
+    Scene scene;
+
+    // Initialize FXML variables
     @FXML
     TextField Username;
     @FXML
     TextField password;
 
-    Stage stage;
-    Scene scene;
-
+    // Overrides the ProfileButtonClicked so that it checks if the username and password are correct
+    // before going to the Profile scene
     @Override
     @FXML
     public void ProfileButtonClicked(ActionEvent event) throws Exception {

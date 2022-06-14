@@ -12,11 +12,16 @@ import java.util.Objects;
 
 
 public abstract class Controller {
+    /**
+     * Abstract parent class of used controllers
+     * Used to Control the behaviour of the buttons for navigation between scenes
+     */
 
+    // Initialize variables
     private Stage stage;
     private Scene scene;
 
-    //Menu
+    // Initialize FXML variables
     @FXML
     Button btnForm;
     @FXML
@@ -26,6 +31,7 @@ public abstract class Controller {
     @FXML
     public Button profielToAdminPanel;
 
+    // Move the current scene to the profile scene
     @FXML
     public void ProfileButtonClicked(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
@@ -38,6 +44,8 @@ public abstract class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
+    // Move the current scene to the form scene
     @FXML
     public void FormButtonClicked(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
@@ -50,6 +58,8 @@ public abstract class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
+    // Move the current scene to the ranklist scene
     @FXML
     public void RanklistButtonClicked(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ranglijst.fxml"));
@@ -62,6 +72,8 @@ public abstract class Controller {
         stage.setScene(scene);
         stage.show();
     }
+
+    // Move the current scene to the setting scene
     @FXML
     public void SettingsButtonClicked(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));

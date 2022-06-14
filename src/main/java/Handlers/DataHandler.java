@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class DataHandler
 {
+    // Initialize variables
     private final String location;
 
     public DataHandler(String location){
