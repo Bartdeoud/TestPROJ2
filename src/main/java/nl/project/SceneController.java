@@ -28,10 +28,6 @@ public class SceneController
     Button btnSettings;
     @FXML
     public Button profielToAdminPanel;
-    @FXML
-    TextField Username;
-    @FXML
-    TextField password;
 
     public String getTheme(){
         if(scene.getStylesheets().toString().contains("lightMode.css")){
@@ -76,17 +72,14 @@ public class SceneController
 
     @FXML
     public void ProfileButtonClicked(ActionEvent event) throws Exception {
-        if(login(Username.getText(), password.getText()))
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(fxmlLoader.load());
-            scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
-            stage.setMaximized(true);
-            stage.setTitle("Greetings!");
-            stage.setScene(scene);
-            stage.show();
-        }
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
+        stage.setMaximized(true);
+        stage.setTitle("Greetings!");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
