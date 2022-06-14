@@ -10,15 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import nl.project.Controller;
 
 import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AdminPanelController
+public class AdminPanelController extends Controller
 {
-    private Stage stage;
-    private Scene scene;
 
     private final DataHandler database = new DataHandler(getDatabase());
 
@@ -85,47 +84,4 @@ public class AdminPanelController
         }
     }
 
-    @FXML
-    public void ProfileButtonClicked(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader.load());
-        stage.setMaximized(true);
-        stage.setTitle("Greetings!");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    public void FormButtonClicked(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("form.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader.load());
-        stage.setMaximized(true);
-        stage.setTitle("Greetings!");
-        stage.setScene(scene);
-        stage.show();
-
-    }
-    @FXML
-    public void RanklistButtonClicked(ActionEvent event) throws Exception {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ranglijst.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader.load());
-        stage.setMaximized(true);
-        stage.setTitle("Greetings!");
-        stage.setScene(scene);
-        stage.show();
-    }
-    @FXML
-    public void SettingsButtonClicked(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Instellingen.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader.load());
-        stage.setMaximized(true);
-        stage.setTitle("Greetings!");
-        stage.setScene(scene);
-        stage.show();
-    }
 }
