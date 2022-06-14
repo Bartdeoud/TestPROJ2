@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import static Handlers.Login.login;
 
-public class LoginController
+public class LoginController extends Controller
 {
     @FXML
     TextField Username;
@@ -49,6 +49,7 @@ public class LoginController
         }
     }
 
+    @Override
     @FXML
     public void ProfileButtonClicked(ActionEvent event) throws Exception {
         if(login(Username.getText(), password.getText()))
@@ -56,7 +57,6 @@ public class LoginController
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader.load());
-            scene.getStylesheets().add(this.getClass().getResource(setTheme()).toExternalForm());
             stage.setMaximized(true);
             stage.setTitle("Greetings!");
             stage.setScene(scene);

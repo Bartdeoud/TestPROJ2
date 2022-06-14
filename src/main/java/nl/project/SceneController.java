@@ -53,21 +53,8 @@ public class SceneController extends Controller
         stage.show();
     }
 
-    @Override
-    @FXML
-    public void ProfileButtonClicked(ActionEvent event) throws Exception {
-        if(login(Username.getText(), password.getText()))
-        {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(fxmlLoader.load());
-            stage.setMaximized(true);
-            stage.setTitle("Greetings!");
-            stage.setScene(scene);
-            stage.show();
-        }
-    }
-
-
 }
+
+
+
 
