@@ -1,5 +1,6 @@
 package nl.project;
 
+import Handlers.DataHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AdminPanel
+public class AdminPanelController
 {
     private Stage stage;
     private Scene scene;

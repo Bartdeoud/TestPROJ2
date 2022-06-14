@@ -13,4 +13,6 @@ module nl.project {
 
     opens nl.project to javafx.fxml;
     exports nl.project;
+    exports Handlers;
+    opens Handlers to javafx.fxml;
 }

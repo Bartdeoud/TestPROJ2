@@ -1,4 +1,6 @@
-package nl.project;
+package Handlers;
+
+import Handlers.DataHandler;
 
 import java.io.File;
 import java.sql.ResultSet;

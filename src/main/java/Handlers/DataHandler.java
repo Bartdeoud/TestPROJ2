@@ -1,4 +1,4 @@
-package nl.project;
+package Handlers;
 
 import java.sql.*;
 
