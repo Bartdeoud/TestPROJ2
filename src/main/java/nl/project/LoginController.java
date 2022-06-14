@@ -20,35 +20,6 @@ public class LoginController extends Controller
     Stage stage;
     Scene scene;
 
-    public String getTheme(){
-        if(scene.getStylesheets().toString().contains("lightMode.css")){
-            System.out.println("Found Theme");
-            return scene.getStylesheets().toString();
-        }
-        else if(scene.getStylesheets().toString().contains("darkMode.css")){
-            System.out.println("Found Theme");
-            return scene.getStylesheets().toString();
-        }
-        else{
-            System.out.println(scene.getStylesheets().toString());
-            return "lightMode.css";
-        }
-    }
-
-    //Check theme and adding to scene by using contains statement
-    public String setTheme(){
-
-        if(getTheme().contains("lightMode.css")){
-            return "lightMode.css";
-        }
-        else if(getTheme().contains("darkMode.css")){
-            return "darkMode.css";
-        }
-        else{
-            return "lightMode.css";
-        }
-    }
-
     @Override
     @FXML
     public void ProfileButtonClicked(ActionEvent event) throws Exception {
