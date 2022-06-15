@@ -63,12 +63,31 @@ public class FormController extends Controller implements Initializable {
 
     @FXML
     public void AddKM(ActionEvent event) {
-        String totalBenzineAutoKM = String.valueOf(Integer.parseInt(BenzineAuto.getText()) + Integer.parseInt(getData("BenzineAutoKM", getLoggedInUser())));
-        String totalDieselAutoKM = String.valueOf(Integer.parseInt(BenzineAuto.getText()) + Integer.parseInt(getData("DieselAutoKM", getLoggedInUser())));
-        String totalElecAutoKM = String.valueOf(Integer.parseInt(BenzineAuto.getText()) + Integer.parseInt(getData("ElecAutoKM", getLoggedInUser())));
-        String totalOVKM = String.valueOf(Integer.parseInt(BenzineAuto.getText()) + Integer.parseInt(getData("OVKM", getLoggedInUser())));
-        String totalVliegtuigKM = String.valueOf(Integer.parseInt(BenzineAuto.getText()) + Integer.parseInt(getData("VliegtuigKM", getLoggedInUser())));
-        String totalHybridAutoKM = String.valueOf(Integer.parseInt(BenzineAuto.getText()) + Integer.parseInt(getData("HybridAutoKM", getLoggedInUser())));
+        String totalBenzineAutoKM = getData("BenzineAutoKM", getLoggedInUser());
+        String totalDieselAutoKM = getData("DieselAutoKM", getLoggedInUser());
+        String totalElecAutoKM = getData("ElecAutoKM", getLoggedInUser());
+        String totalOVKM = getData("OVKM", getLoggedInUser());
+        String totalVliegtuigKM = getData("VliegtuigKM", getLoggedInUser());
+        String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
+
+        if ((!(BenzineAuto.getText() == null)) && (!BenzineAuto.getText().equals(""))){
+            totalBenzineAutoKM = String.valueOf(Integer.parseInt(BenzineAuto.getText()) + Integer.parseInt(getData("BenzineAutoKM", getLoggedInUser())));
+        }
+        if (!(DieselAuto.getText() == null) && !DieselAuto.getText().equals("")){
+            totalDieselAutoKM = String.valueOf(Integer.parseInt(DieselAuto.getText()) + Integer.parseInt(getData("DieselAutoKM", getLoggedInUser())));
+        }
+        if (!(ElecAuto.getText() == null) && !(ElecAuto.getText().equals(""))){
+            totalElecAutoKM = String.valueOf(Integer.parseInt(ElecAuto.getText()) + Integer.parseInt(getData("ElecAutoKM", getLoggedInUser())));
+        }
+        if (!(OV.getText() == null) && !OV.getText().equals("")){
+            totalOVKM = String.valueOf(Integer.parseInt(OV.getText()) + Integer.parseInt(getData("OVKM", getLoggedInUser())));
+        }
+        if (!(Vliegtuig.getText() == null) && !Vliegtuig.getText().equals("")){
+            totalVliegtuigKM = String.valueOf(Integer.parseInt(Vliegtuig.getText()) + Integer.parseInt(getData("VliegtuigKM", getLoggedInUser())));
+        }
+        if (!(HybridAuto.getText() == null) && !HybridAuto.getText().equals("")){
+            totalHybridAutoKM = String.valueOf(Integer.parseInt(HybridAuto.getText()) + Integer.parseInt(getData("HybridAutoKM", getLoggedInUser())));
+        }
 
         setData("BenzineAutoKM", totalBenzineAutoKM, getLoggedInUser());
         setData("DieselAutoKM", totalDieselAutoKM, getLoggedInUser());
