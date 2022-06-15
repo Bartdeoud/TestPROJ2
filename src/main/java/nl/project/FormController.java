@@ -30,7 +30,7 @@ public class FormController extends Controller implements Initializable {
     @FXML
     private ListView<String> KMListView;
     @FXML
-    private ListView<String> PointsListView;
+    private ListView<Double> PointsListView;
     @FXML
     Button submitBtn;
     @FXML

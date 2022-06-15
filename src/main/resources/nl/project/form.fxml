@@ -155,7 +155,7 @@
                   </Text>
                </children>
             </Pane>
-            <HBox fx:id="hbox1" layoutX="41.0" layoutY="140.0" prefHeight="350.0" prefWidth="1500.0">
+            <HBox fx:id="hbox1" layoutX="41.0" layoutY="160.0" prefHeight="350.0" prefWidth="1500.0">
                <children>
                   <ListView fx:id="NameListView" prefHeight="200.0" prefWidth="500.0" />
                   <ListView fx:id="KMListView" prefHeight="200.0" prefWidth="500.0" />
@@ -170,6 +170,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Label layoutX="61.0" layoutY="139.0" prefHeight="16.0" prefWidth="225.0" text="Soort" />
+            <Label layoutX="555.0" layoutY="139.0" prefHeight="16.0" prefWidth="225.0" text="km gereisd" />
+            <Label layoutX="1053.0" layoutY="140.0" prefHeight="16.0" prefWidth="225.0" text="behaalde punten" />
          </children></AnchorPane>
    </center>
    <left>

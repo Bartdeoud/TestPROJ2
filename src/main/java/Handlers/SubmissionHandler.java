@@ -8,9 +8,6 @@ import static Handlers.DatabaseHandler.setData;
 import static Handlers.Login.getLoggedInUser;
 
 public class SubmissionHandler {
-
-
-
     public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto){
 
         String totalBenzineAutoKM = getData("BenzineAutoKM", getLoggedInUser());
@@ -47,12 +44,10 @@ public class SubmissionHandler {
         setData("VliegtuigKM", totalVliegtuigKM, getLoggedInUser());
         setData("HybridAutoKM", totalHybridAutoKM, getLoggedInUser());
     }
-    public static void formList(ListView<String> nameListView, ListView<String> KMListView, ListView<String> pointsListView) {
+    public static void formList(ListView<String> nameListView, ListView<String> KMListView, ListView<Double> pointsListView) {
         nameListView.getItems().clear();
         KMListView.getItems().clear();
         pointsListView.getItems().clear();
-
-        String[] punten = {"50pt", "45pt", "40pt", "30pt", "10pt"};
 
         String totalBenzineAutoKM = getData("BenzineAutoKM", getLoggedInUser());
         String totalDieselAutoKM = getData("DieselAutoKM", getLoggedInUser());
@@ -61,8 +56,16 @@ public class SubmissionHandler {
         String totalVliegtuigKM = getData("VliegtuigKM", getLoggedInUser());
         String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
 
+        double TotalBenzineCarPT = Double.parseDouble(totalBenzineAutoKM) * 0.25;
+        double totalDieselAutoPT = Double.parseDouble(totalBenzineAutoKM) *0.30;
+        double totalElecAutoPT = Double.parseDouble(totalBenzineAutoKM) * 0.80;
+        double totalOVPT = Double.parseDouble(totalBenzineAutoKM) * 0.50;
+        double totalVliegtuigPT = Double.parseDouble(totalBenzineAutoKM)* 0.10;
+        double totalHybridAutoPT = Double.parseDouble(totalBenzineAutoKM) * 0.45;
+
         String[] names = {"Benzine Auto","Diesel Auto", "Elektrische Auto", "Openbaar Vervoer", "Vliegtuig", "Hybride Auto"};
         String[] km = {totalBenzineAutoKM + " km", totalDieselAutoKM + " km",totalElecAutoKM + " km",totalOVKM + " km",totalVliegtuigKM + " km",totalHybridAutoKM + " km"};
+        Double[] punten = {TotalBenzineCarPT,totalDieselAutoPT, totalElecAutoPT, totalOVPT, totalVliegtuigPT, totalHybridAutoPT};
 
         nameListView.getItems().addAll(names);
         KMListView.getItems().addAll(km);
