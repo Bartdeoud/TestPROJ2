@@ -1,5 +1,6 @@
 package Handlers;
 
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import static Handlers.DatabaseHandler.getData;
@@ -7,6 +8,8 @@ import static Handlers.DatabaseHandler.setData;
 import static Handlers.Login.getLoggedInUser;
 
 public class SubmissionHandler {
+
+
 
     public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto){
 
@@ -43,5 +46,26 @@ public class SubmissionHandler {
         setData("OVKM", totalOVKM, getLoggedInUser());
         setData("VliegtuigKM", totalVliegtuigKM, getLoggedInUser());
         setData("HybridAutoKM", totalHybridAutoKM, getLoggedInUser());
+    }
+    public static void formList(ListView<String> nameListView, ListView<String> KMListView, ListView<String> pointsListView) {
+        nameListView.getItems().clear();
+        KMListView.getItems().clear();
+        pointsListView.getItems().clear();
+
+        String[] punten = {"50pt", "45pt", "40pt", "30pt", "10pt"};
+
+        String totalBenzineAutoKM = getData("BenzineAutoKM", getLoggedInUser());
+        String totalDieselAutoKM = getData("DieselAutoKM", getLoggedInUser());
+        String totalElecAutoKM = getData("ElecAutoKM", getLoggedInUser());
+        String totalOVKM = getData("OVKM", getLoggedInUser());
+        String totalVliegtuigKM = getData("VliegtuigKM", getLoggedInUser());
+        String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
+
+        String[] names = {"Benzine Auto","Diesel Auto", "Elektrische Auto", "Openbaar Vervoer", "Vliegtuig", "Hybride Auto"};
+        String[] km = {totalBenzineAutoKM + " km", totalDieselAutoKM + " km",totalElecAutoKM + " km",totalOVKM + " km",totalVliegtuigKM + " km",totalHybridAutoKM + " km"};
+
+        nameListView.getItems().addAll(names);
+        KMListView.getItems().addAll(km);
+        pointsListView.getItems().addAll(punten);
     }
 }

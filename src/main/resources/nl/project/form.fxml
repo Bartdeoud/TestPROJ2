@@ -157,12 +157,19 @@
             </Pane>
             <HBox fx:id="hbox1" layoutX="41.0" layoutY="140.0" prefHeight="350.0" prefWidth="1500.0">
                <children>
-                  <ListView fx:id="NmmrListView" prefHeight="350.0" prefWidth="91.0" />
                   <ListView fx:id="NameListView" prefHeight="200.0" prefWidth="500.0" />
                   <ListView fx:id="KMListView" prefHeight="200.0" prefWidth="500.0" />
                   <ListView fx:id="PointsListView" prefHeight="200.0" prefWidth="500.0" />
                </children>
             </HBox>
+            <Button id="loadButton" layoutX="1066.0" layoutY="521.0" mnemonicParsing="false" onAction="#ReloadList" prefHeight="69.0" prefWidth="465.0" stylesheets="@lightMode.css" text="Button">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children></AnchorPane>
    </center>
    <left>

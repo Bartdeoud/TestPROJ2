@@ -22,7 +22,7 @@
     -fx-border-radius: 2px;
 }
 
-#btnProfile1{
+#btnProfile1, #loadButton{
     -fx-color: #9571ff;
     -fx-text-fill: #f8f5ff;
 }
