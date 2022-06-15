@@ -52,7 +52,7 @@ public class AdminPanelController extends Controller {
     // Adds an user with the given attributes to the database
     @FXML
     public void AddUser(ActionEvent event) {
-        String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel]) VALUES (\"%s\",\"%s\",%s,%s)",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText());
+        String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel], [BenzineAutoKM], [DieselAutoKM], [ElecAutoKM], [OVKM], [VliegtuigKM], [HybridAutoKM]) VALUES (\"%s\",\"%s\",%s,%s, \"0\", \"0\", \"0\", \"0\", \"0\", \"0\")",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText());
         runQuery(query, getDatabasePath());
         clearTextFields();
     }

@@ -17,7 +17,6 @@ public class Login
     // Sets the current logged in user
     public static void setLoggedInUser(String username){
         user = username;
-        System.out.println(user);
     }
 
     // Gets the current logged in user
