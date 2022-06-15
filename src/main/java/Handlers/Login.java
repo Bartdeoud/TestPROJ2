@@ -1,58 +1,28 @@
 package Handlers;
 
-import Handlers.DataHandler;
-
-import java.io.File;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import static Handlers.DatabaseHandler.*;
 
 public class Login
 {
     // Initialize variables
     public static String loggedInUser;
     public static int accessLevel;
-    private static final DataHandler database = getDatabase();
+    public static String user;
 
-    //returns if password is correct
-    public static boolean login(String name, String password){
-        String password1 = null;
-        ResultSet rs = database.getData(String.format("SELECT * FROM [Users] WHERE UserName = \"%s\"",name));
-
-        try
-        {
-            while (rs.next())
-            {
-                saveLoggedInUser(name);
-                password1 = rs.getString("Password");
-            }
-        } catch (SQLException throwables)
-        {
-            throwables.printStackTrace();
-        }
-
-        if(password1 == null) return false;
-        return password.equals(password1);
+    // Returns if password is correct
+    public static boolean loginPasswordCheck(String user, String password){
+        return getData("Password", user).equals(password);
     }
 
-    //saves data from logged in user
-    public static void saveLoggedInUser(String user){
-        loggedInUser = user;
-        ResultSet rs = database.getData(String.format("SELECT * FROM [Users] WHERE UserName = \"%s\"",user));
-        try
-        {
-            while (rs.next())
-            {
-                accessLevel = rs.getInt("AccessLevel");
-            }
-        } catch (SQLException throwables)
-        {
-            throwables.printStackTrace();
-        }
+    // Sets the current logged in user
+    public static void setLoggedInUser(String username){
+        user = username;
+        System.out.println(user);
     }
 
-    //returns the database
-    public static DataHandler getDatabase(){
-        String filePath = new File("").getAbsolutePath();
-        return new DataHandler(filePath + "/Databases/project2db.mdb");
+    // Gets the current logged in user
+    public static String getLoggedInUser(){
+        return user;
     }
+
 }

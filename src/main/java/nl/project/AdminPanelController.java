@@ -1,29 +1,22 @@
 package nl.project;
 
-import Handlers.DataHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import nl.project.Controller;
 
-import java.io.File;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import static Handlers.DatabaseHandler.*;
 
 public class AdminPanelController extends Controller {
     /**
      * Child class of Controller
      * Used to control the behaviour of the Admin panel scene
      */
-
-    // Initialize variables
-    private final DataHandler database = new DataHandler(getDatabase());
 
     // Initialize FXML variables
     @FXML
@@ -49,9 +42,10 @@ public class AdminPanelController extends Controller {
     // Modify the defined users attributes to the given attributes in the database
     @FXML
     public void ChangeUser(ActionEvent event) {
-        String query = String.format("UPDATE [Users] SET UserName = \"%s\", Password = \"%s\", Points = '%s', AccessLevel = '%s' WHERE UserName = \"%s\"",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText(),TFUserNameToChange.getText());
-        System.out.println(query);
-        database.runQuery(query);
+        setData("UserName", TFUsername.getText(), TFUserNameToChange.getText());
+        setData("Password", TFPassword.getText(), TFUserNameToChange.getText());
+        setData("Points", TFPoints.getText(), TFUserNameToChange.getText());
+        setData("AccessLevel", TFAccesslevel.getText(), TFUserNameToChange.getText());
         clearTextFields();
     }
 
@@ -59,15 +53,10 @@ public class AdminPanelController extends Controller {
     @FXML
     public void AddUser(ActionEvent event) {
         String query = String.format("INSERT INTO [Users] ([UserName], [Password], [Points], [AccessLevel]) VALUES (\"%s\",\"%s\",%s,%s)",TFUsername.getText(),TFPassword.getText(),TFPoints.getText(),TFAccesslevel.getText());
-        database.runQuery(query);
+        runQuery(query, getDatabasePath());
         clearTextFields();
     }
 
-    //  Get the filepath of the database
-    public String getDatabase(){
-        String filePath = new File("").getAbsolutePath();
-        return filePath + "/Databases/project2db.mdb";
-    }
 
     // Clear the used textfields so you can easily use them again
     public void clearTextFields(){
@@ -82,7 +71,7 @@ public class AdminPanelController extends Controller {
     @FXML
     public void LoadUsers(ActionEvent event) {
         textAreaUsers.setText("");
-        ResultSet rs = database.getData("SELECT * FROM [Users]");
+        ResultSet rs = getDataSet("SELECT * FROM [Users]", getDatabasePath());
         try
         {
             while (rs.next())

@@ -29,7 +29,7 @@
                   <Font size="27.0" />
                </font>
             </TextField>
-            <Button fx:id="btnProfile1" alignment="CENTER" layoutX="1217.0" layoutY="838.0" mnemonicParsing="false" onAction="#ProfileButtonClicked" prefHeight="55.0" prefWidth="256.0" text="Login" textAlignment="CENTER">
+            <Button fx:id="btnProfile1" alignment="CENTER" layoutX="1217.0" layoutY="838.0" mnemonicParsing="false" onAction="#LoginButtonClicked" prefHeight="55.0" prefWidth="256.0" text="Login" textAlignment="CENTER">
                <font>
                   <Font size="27.0" />
                </font>

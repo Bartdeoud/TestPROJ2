@@ -8,7 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import static Handlers.Login.login;
+import static Handlers.Login.loginPasswordCheck;
+import static Handlers.Login.setLoggedInUser;
 
 public class LoginController extends Controller {
     /**
@@ -26,13 +27,13 @@ public class LoginController extends Controller {
     @FXML
     TextField password;
 
-    // Overrides the ProfileButtonClicked so that it checks if the username and password are correct
-    // before going to the Profile scene
-    @Override
+    // Changes the login scene to the profile scene if the username and password are correct
     @FXML
-    public void ProfileButtonClicked(ActionEvent event) throws Exception {
-        if(login(Username.getText(), password.getText()))
+    public void LoginButtonClicked(ActionEvent event) throws Exception {
+        if(loginPasswordCheck(Username.getText(), password.getText()))
         {
+            System.out.println(Username.getText());
+            setLoggedInUser(Username.getText());
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader.load());
