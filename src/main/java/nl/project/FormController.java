@@ -50,14 +50,10 @@ public class FormController extends Controller implements Initializable {
     // And shows the initialized variables on the scene
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SubmissionHandler.formList(NameListView,KMListView,PointsListView);
-    }
-    @FXML
-    public void ReloadList(ActionEvent event) {
-        SubmissionHandler.formList(NameListView,KMListView,PointsListView);
+        SubmissionHandler.formList(NameListView, KMListView, PointsListView);
     }
     @FXML
     public void AddKM(ActionEvent event) {
-        SubmissionHandler.submissionHandler(BenzineAuto,DieselAuto,ElecAuto,OV,Vliegtuig,HybridAuto);
+        SubmissionHandler.submissionHandler(BenzineAuto,DieselAuto,ElecAuto,OV,Vliegtuig,HybridAuto,NameListView,KMListView,PointsListView);
     }
 }

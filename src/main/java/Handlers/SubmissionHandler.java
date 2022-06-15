@@ -8,15 +8,21 @@ import static Handlers.DatabaseHandler.setData;
 import static Handlers.Login.getLoggedInUser;
 
 public class SubmissionHandler {
-    public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto){
 
-        String totalBenzineAutoKM = getData("BenzineAutoKM", getLoggedInUser());
-        String totalDieselAutoKM = getData("DieselAutoKM", getLoggedInUser());
-        String totalElecAutoKM = getData("ElecAutoKM", getLoggedInUser());
-        String totalOVKM = getData("OVKM", getLoggedInUser());
-        String totalVliegtuigKM = getData("VliegtuigKM", getLoggedInUser());
-        String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
+    static double TotalBenzineCarPT;
+    static double totalDieselAutoPT;
+    static double totalElecAutoPT;
+    static double totalOVPT;
+    static double totalVliegtuigPT;
+    static double totalHybridAutoPT;
+    static String totalBenzineAutoKM = getData("BenzineAutoKM", getLoggedInUser());
+    static String totalDieselAutoKM = getData("DieselAutoKM", getLoggedInUser());
+    static String totalElecAutoKM = getData("ElecAutoKM", getLoggedInUser());
+    static String totalOVKM = getData("OVKM", getLoggedInUser());
+    static String totalVliegtuigKM = getData("VliegtuigKM", getLoggedInUser());
+    static String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
 
+     public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto,ListView<String> nameListView, ListView<String> KMListView, ListView<Double> pointsListView){
 
         if ((!(benzineAuto.getText() == null)) && (!benzineAuto.getText().equals(""))){
             totalBenzineAutoKM = String.valueOf(Integer.parseInt(benzineAuto.getText()) + Integer.parseInt(getData("BenzineAutoKM", getLoggedInUser())));
@@ -43,25 +49,21 @@ public class SubmissionHandler {
         setData("OVKM", totalOVKM, getLoggedInUser());
         setData("VliegtuigKM", totalVliegtuigKM, getLoggedInUser());
         setData("HybridAutoKM", totalHybridAutoKM, getLoggedInUser());
+
+        formList(nameListView, KMListView, pointsListView);
+
     }
     public static void formList(ListView<String> nameListView, ListView<String> KMListView, ListView<Double> pointsListView) {
         nameListView.getItems().clear();
         KMListView.getItems().clear();
         pointsListView.getItems().clear();
 
-        String totalBenzineAutoKM = getData("BenzineAutoKM", getLoggedInUser());
-        String totalDieselAutoKM = getData("DieselAutoKM", getLoggedInUser());
-        String totalElecAutoKM = getData("ElecAutoKM", getLoggedInUser());
-        String totalOVKM = getData("OVKM", getLoggedInUser());
-        String totalVliegtuigKM = getData("VliegtuigKM", getLoggedInUser());
-        String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
-
-        double TotalBenzineCarPT = Double.parseDouble(totalBenzineAutoKM) * 0.25;
-        double totalDieselAutoPT = Double.parseDouble(totalBenzineAutoKM) *0.30;
-        double totalElecAutoPT = Double.parseDouble(totalBenzineAutoKM) * 0.80;
-        double totalOVPT = Double.parseDouble(totalBenzineAutoKM) * 0.50;
-        double totalVliegtuigPT = Double.parseDouble(totalBenzineAutoKM)* 0.10;
-        double totalHybridAutoPT = Double.parseDouble(totalBenzineAutoKM) * 0.45;
+        TotalBenzineCarPT = Double.parseDouble(totalBenzineAutoKM) * 0.25;
+        totalDieselAutoPT = Double.parseDouble(totalBenzineAutoKM) *0.30;
+        totalElecAutoPT = Double.parseDouble(totalBenzineAutoKM) * 0.80;
+        totalOVPT = Double.parseDouble(totalBenzineAutoKM) * 0.50;
+        totalVliegtuigPT = Double.parseDouble(totalBenzineAutoKM)* 0.10;
+        totalHybridAutoPT = Double.parseDouble(totalBenzineAutoKM) * 0.45;
 
         String[] names = {"Benzine Auto","Diesel Auto", "Elektrische Auto", "Openbaar Vervoer", "Vliegtuig", "Hybride Auto"};
         String[] km = {totalBenzineAutoKM + " km", totalDieselAutoKM + " km",totalElecAutoKM + " km",totalOVKM + " km",totalVliegtuigKM + " km",totalHybridAutoKM + " km"};

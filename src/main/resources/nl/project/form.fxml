@@ -162,14 +162,6 @@
                   <ListView fx:id="PointsListView" prefHeight="200.0" prefWidth="500.0" />
                </children>
             </HBox>
-            <Button id="loadButton" layoutX="1066.0" layoutY="521.0" mnemonicParsing="false" onAction="#ReloadList" prefHeight="69.0" prefWidth="465.0" stylesheets="@lightMode.css" text="Button">
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <Label layoutX="61.0" layoutY="139.0" prefHeight="16.0" prefWidth="225.0" text="Soort" />
             <Label layoutX="555.0" layoutY="139.0" prefHeight="16.0" prefWidth="225.0" text="km gereisd" />
             <Label layoutX="1053.0" layoutY="140.0" prefHeight="16.0" prefWidth="225.0" text="behaalde punten" />
