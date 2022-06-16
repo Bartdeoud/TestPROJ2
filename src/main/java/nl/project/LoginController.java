@@ -32,15 +32,8 @@ public class LoginController extends Controller {
     public void LoginButtonClicked(ActionEvent event) throws Exception {
         if(loginPasswordCheck(Username.getText(), password.getText()))
         {
-
             setLoggedInUser(Username.getText());
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profiel.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(fxmlLoader.load());
-            stage.setMaximized(true);
-            stage.setTitle("Greetings!");
-            stage.setScene(scene);
-            stage.show();
+            nextScene("Profiel.fxml",event);
         }
     }
 }

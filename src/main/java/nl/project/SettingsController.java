@@ -33,8 +33,7 @@ public class SettingsController extends Controller implements Initializable {
 
     //Get selected theme
     private String getThemeCBox(ChoiceBox<String> themeCbox){
-        String theme = themeCbox.getValue();
-        return theme;
+        return themeCbox.getValue();
     }
 
     // Opens dropdown menu with themes

@@ -40,15 +40,7 @@ public class ProfileController extends Controller {
     // Change the current scene to the admin panel scene
     @FXML
     public void profielToAdminPanelClicked(ActionEvent event) throws Exception{
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminPanel.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load());
-        String css = Objects.requireNonNull(this.getClass().getResource("lightMode.css")).toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setMaximized(true);
-        stage.setTitle("COnee");
-        stage.setScene(scene);
-        stage.show();
+        nextScene("AdminPanel.fxml",event);
     }
 
 }
