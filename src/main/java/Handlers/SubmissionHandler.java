@@ -30,7 +30,7 @@ public class SubmissionHandler {
         return String.valueOf(Integer.parseInt(getData(column, getLoggedInUser())));
     }
 
-    public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto,ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView){
+    public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto, TextField WalkingandCycling,ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView){
 
         totalBenzineAutoKM = checkTextfield(benzineAuto, "BenzineAutoKM");
         totalDieselAutoKM =checkTextfield(dieselAuto, "DieselAutoKM");
@@ -38,6 +38,7 @@ public class SubmissionHandler {
         totalOVKM = checkTextfield(OV, "OVKM");
         totalVliegtuigKM = checkTextfield(vliegtuig, "VliegtuigKM");
         totalHybridAutoKM = checkTextfield(hybridAuto, "HybridAutoKM");
+        totalWalkingAndCyclingKM = checkTextfield(WalkingandCycling, "WalkingAndCyclingKM");
 
         setData("BenzineAutoKM", totalBenzineAutoKM, getLoggedInUser());
         setData("DieselAutoKM", totalDieselAutoKM, getLoggedInUser());
