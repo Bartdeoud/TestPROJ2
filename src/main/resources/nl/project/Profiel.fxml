@@ -26,7 +26,7 @@
                         <Font name="Bell MT Italic" size="48.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naam: Mark Olieman" wrappingWidth="301.9831027984619">
+                  <Text layoutX="20.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naam: User" wrappingWidth="301.9831027984619">
                      <font>
                         <Font size="30.0" />
                      </font>
