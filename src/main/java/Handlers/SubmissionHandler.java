@@ -14,12 +14,14 @@ public class SubmissionHandler {
     static double totalOVPT;
     static double totalVliegtuigPT;
     static double totalHybridAutoPT;
+    static double totalWalkingAndCyclingPT;
     static String totalBenzineAutoKM = getData("BenzineAutoKM", getLoggedInUser());
     static String totalDieselAutoKM = getData("DieselAutoKM", getLoggedInUser());
     static String totalElecAutoKM = getData("ElecAutoKM", getLoggedInUser());
     static String totalOVKM = getData("OVKM", getLoggedInUser());
     static String totalVliegtuigKM = getData("VliegtuigKM", getLoggedInUser());
     static String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
+    static String totalWalkingAndCyclingKM = getData("WalkingAndCyclingKM",getLoggedInUser());
 
     public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto,ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView){
 
@@ -52,13 +54,25 @@ public class SubmissionHandler {
         formList(nameListView, KMListView, pointsListView);
 
     }
+
+    public static void formList(ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView) {
+        destructList(nameListView,  KMListView, pointsListView);
+
+        String[] names = {"Benzine Auto","Diesel Auto", "Elektrische Auto", "Openbaar Vervoer", "Vliegtuig", "Hybride Auto", "Lopen en Fietsen"};
+        String[] km = {totalBenzineAutoKM + " km", totalDieselAutoKM + " km",totalElecAutoKM + " km",totalOVKM + " km",totalVliegtuigKM + " km",totalHybridAutoKM + " km", totalWalkingAndCyclingKM + " km"};
+        Integer[] punten = ptHandler();
+
+        constructList(nameListView,  KMListView, pointsListView,names,km,punten);
+    }
+    //Calculates points and puts into Integer
     public static Integer[] ptHandler(){
-        totalBenzineCarPT = Double.parseDouble(totalBenzineAutoKM) * 0.25;
-        totalDieselAutoPT = Double.parseDouble(totalDieselAutoKM) *0.30;
-        totalElecAutoPT = Double.parseDouble(totalElecAutoKM) * 0.80;
-        totalOVPT = Double.parseDouble(totalOVKM) * 0.50;
-        totalVliegtuigPT = Double.parseDouble(totalVliegtuigKM)* 0.10;
-        totalHybridAutoPT = Double.parseDouble(totalHybridAutoKM) * 0.45;
+        totalBenzineCarPT = Double.parseDouble(totalBenzineAutoKM) * -0.30;
+        totalDieselAutoPT = Double.parseDouble(totalDieselAutoKM) * -0.20;
+        totalElecAutoPT = Double.parseDouble(totalElecAutoKM) * 1;
+        totalOVPT = Double.parseDouble(totalOVKM) * 1.20;
+        totalVliegtuigPT = Double.parseDouble(totalVliegtuigKM)* -0.05;
+        totalHybridAutoPT = Double.parseDouble(totalHybridAutoKM) * -0.10;
+        totalWalkingAndCyclingPT = Double.parseDouble(totalHybridAutoKM) * 2.0;
 
         int intTotalBenzineCarPT = (int) Math.round(totalBenzineCarPT);
         int intTotalDieselAutoPT = (int) Math.round(totalDieselAutoPT);
@@ -66,21 +80,22 @@ public class SubmissionHandler {
         int intTotalOVPT = (int) Math.round(totalOVPT);
         int intTotalVliegtuigPT = (int) Math.round(totalVliegtuigPT);
         int intTotalHybridAutoPT = (int) Math.round(totalHybridAutoPT);
+        int intTotalWalkingAndCyclingPT = (int) Math.round(totalWalkingAndCyclingPT);
 
-        int totalPT = intTotalBenzineCarPT + intTotalDieselAutoPT + intTotalElecAutoPT + intTotalOVPT + intTotalVliegtuigPT + intTotalHybridAutoPT;
+        int totalPT = intTotalBenzineCarPT + intTotalDieselAutoPT + intTotalElecAutoPT + intTotalOVPT + intTotalVliegtuigPT + intTotalHybridAutoPT + intTotalWalkingAndCyclingPT;
         setData("TotalPT", String.valueOf(totalPT), getLoggedInUser());
 
-        return new Integer[] {intTotalBenzineCarPT,intTotalDieselAutoPT, intTotalElecAutoPT, intTotalOVPT, intTotalVliegtuigPT, intTotalHybridAutoPT};
+        return new Integer[] {intTotalBenzineCarPT,intTotalDieselAutoPT, intTotalElecAutoPT, intTotalOVPT, intTotalVliegtuigPT, intTotalHybridAutoPT,intTotalWalkingAndCyclingPT};
     }
-    public static void formList(ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView) {
+    //Clears Listviews everytime submission button is clicked
+    public static void destructList(ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView){
         nameListView.getItems().clear();
         KMListView.getItems().clear();
         pointsListView.getItems().clear();
+    }
 
-        String[] names = {"Benzine Auto","Diesel Auto", "Elektrische Auto", "Openbaar Vervoer", "Vliegtuig", "Hybride Auto"};
-        String[] km = {totalBenzineAutoKM + " km", totalDieselAutoKM + " km",totalElecAutoKM + " km",totalOVKM + " km",totalVliegtuigKM + " km",totalHybridAutoKM + " km"};
-        Integer[] punten = ptHandler();
-
+    //Builds Listviews everytime submission button is clicked
+    public static void constructList(ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView, String[] names, String[] km, Integer[] punten){
         nameListView.getItems().addAll(names);
         KMListView.getItems().addAll(km);
         pointsListView.getItems().addAll(punten);
