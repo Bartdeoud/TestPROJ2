@@ -23,7 +23,7 @@ public class SubmissionHandler {
     static String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
     static String totalWalkingAndCyclingKM = getData("WalkingAndCyclingKM",getLoggedInUser());
 
-    public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto,ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView){
+    public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto, TextField walkingAndCycling,ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView){
 
         if ((!(benzineAuto.getText() == null)) && (!benzineAuto.getText().equals(""))){
             totalBenzineAutoKM = String.valueOf(Integer.parseInt(benzineAuto.getText()) + Integer.parseInt(getData("BenzineAutoKM", getLoggedInUser())));
@@ -43,6 +43,9 @@ public class SubmissionHandler {
         if (!(hybridAuto.getText() == null) && !hybridAuto.getText().equals("")){
             totalHybridAutoKM = String.valueOf(Integer.parseInt(hybridAuto.getText()) + Integer.parseInt(getData("HybridAutoKM", getLoggedInUser())));
         }
+        if (!(walkingAndCycling.getText() == null) && !walkingAndCycling.getText().equals("")){
+            totalWalkingAndCyclingKM = String.valueOf(Integer.parseInt(walkingAndCycling.getText()) + Integer.parseInt(getData("WalkingAndCyclingKM", getLoggedInUser())));
+        }
 
         setData("BenzineAutoKM", totalBenzineAutoKM, getLoggedInUser());
         setData("DieselAutoKM", totalDieselAutoKM, getLoggedInUser());
@@ -50,6 +53,7 @@ public class SubmissionHandler {
         setData("OVKM", totalOVKM, getLoggedInUser());
         setData("VliegtuigKM", totalVliegtuigKM, getLoggedInUser());
         setData("HybridAutoKM", totalHybridAutoKM, getLoggedInUser());
+        setData("WalkingAndCyclingKM", totalWalkingAndCyclingKM, getLoggedInUser());
 
         formList(nameListView, KMListView, pointsListView);
 
@@ -72,7 +76,7 @@ public class SubmissionHandler {
         totalOVPT = Double.parseDouble(totalOVKM) * 1.20;
         totalVliegtuigPT = Double.parseDouble(totalVliegtuigKM)* -0.05;
         totalHybridAutoPT = Double.parseDouble(totalHybridAutoKM) * -0.10;
-        totalWalkingAndCyclingPT = Double.parseDouble(totalHybridAutoKM) * 2.0;
+        totalWalkingAndCyclingPT = Double.parseDouble(totalWalkingAndCyclingKM) * 2.0;
 
         int intTotalBenzineCarPT = (int) Math.round(totalBenzineCarPT);
         int intTotalDieselAutoPT = (int) Math.round(totalDieselAutoPT);

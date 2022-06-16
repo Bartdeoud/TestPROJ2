@@ -75,13 +75,21 @@
 
 /*---------Rank list---------*/
 
-#RankListView, #RankListView2, #RankListView3, #rankLabel{
+#RankListView, #RankListView2{
      -fx-border-color: #c7b4ff;
      -fx-border-width: 5px;
      -fx-border-radius: 2px;
      -fx-background-color: #e1d7ff;
 }
+#hboxRank{
+    -fx-border-color: #c7b4ff;
+    -fx-border-width: 5px;
+    -fx-border-radius: 2px;
+    -fx-background-color: #e1d7ff;
+}
+#Label1, #Label2{
 
+}
 /*---------Settings---------*/
 
 #labelSettings{

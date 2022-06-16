@@ -10,12 +10,13 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.RankingController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@lightMode.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.project.RankingController">
    <center>
       <AnchorPane prefHeight="708.0" prefWidth="1059.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
@@ -30,33 +31,22 @@
                   </Text>
                </children>
             </Pane>
-            <Pane fx:id="ranklistPane" layoutX="20.0" layoutY="190.0" prefHeight="567.0" prefWidth="714.0">
+            <VBox id="hboxRank" layoutX="20.0" layoutY="233.0" prefHeight="500.0" prefWidth="500.0">
                <children>
-                  <Label alignment="CENTER" layoutX="57.0" layoutY="7.0" prefHeight="36.0" prefWidth="601.0" text="Selecteer een gebruiker" textAlignment="CENTER">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="59.0" prefHeight="36.0" prefWidth="95.0" text="Naam" textAlignment="CENTER">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="238.0" layoutY="59.0" prefHeight="36.0" prefWidth="95.0" text="Naam" textAlignment="CENTER">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="476.0" layoutY="59.0" prefHeight="36.0" prefWidth="95.0" text="Naam" textAlignment="CENTER">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <ListView fx:id="RankListView" layoutY="88.0" prefHeight="478.0" prefWidth="238.0" />
-                  <ListView fx:id="RankListView2" layoutX="238.0" layoutY="88.0" prefHeight="478.0" prefWidth="238.0" />
-                  <ListView fx:id="RankListView3" layoutX="476.0" layoutY="88.0" prefHeight="478.0" prefWidth="238.0" />
+                  <HBox prefHeight="95.0" prefWidth="490.0">
+                     <children>
+                        <Label id="Label1" prefHeight="72.0" prefWidth="250.0" text="Naam" />
+                        <Label id="Label2" prefHeight="65.0" prefWidth="250.0" text="Punten" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="500.0" prefWidth="500.0">
+                     <children>
+                        <ListView id="RankListView2" fx:id="RankListView" prefHeight="490.0" prefWidth="250.0" />
+                        <ListView id="RankListView" prefHeight="525.0" prefWidth="250.0" />
+                     </children>
+                  </HBox>
                </children>
-            </Pane>
+            </VBox>
          </children></AnchorPane>
    </center>
    <left>

@@ -55,7 +55,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="62.5" prefWidth="547.0" text="Overige">
+                        <Label prefHeight="62.5" prefWidth="547.0" text="Lopen en fietsen">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -112,7 +112,7 @@
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <TextField prefHeight="62.5" promptText="Voer aantal km's gereisd in">
+                        <TextField fx:id="WalkingAndCycling" prefHeight="62.5" promptText="Voer aantal km's gereisd in">
                            <font>
                               <Font size="18.0" />
                            </font>
