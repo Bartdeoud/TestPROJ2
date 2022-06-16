@@ -120,15 +120,7 @@
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <TextField prefHeight="62.5" promptText="Voer aantal km's gereisd in">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </TextField>
-                        <Button fx:id="submitBtn" alignment="CENTER" mnemonicParsing="false" onAction="#AddKM" prefHeight="62.5" prefWidth="500.0" text="Submit" textAlignment="CENTER">
+                        <Button fx:id="submitBtn" alignment="CENTER" mnemonicParsing="false" onAction="#AddKM" prefHeight="46.0" prefWidth="496.0" text="Submit" textAlignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>

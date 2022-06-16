@@ -2,14 +2,13 @@ package Handlers;
 
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
 import static Handlers.DatabaseHandler.getData;
 import static Handlers.DatabaseHandler.setData;
 import static Handlers.Login.getLoggedInUser;
 
 public class SubmissionHandler {
 
-    static double TotalBenzineCarPT;
+    static double totalBenzineCarPT;
     static double totalDieselAutoPT;
     static double totalElecAutoPT;
     static double totalOVPT;
@@ -22,7 +21,7 @@ public class SubmissionHandler {
     static String totalVliegtuigKM = getData("VliegtuigKM", getLoggedInUser());
     static String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
 
-     public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto,ListView<String> nameListView, ListView<String> KMListView, ListView<Double> pointsListView){
+    public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto,ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView){
 
         if ((!(benzineAuto.getText() == null)) && (!benzineAuto.getText().equals(""))){
             totalBenzineAutoKM = String.valueOf(Integer.parseInt(benzineAuto.getText()) + Integer.parseInt(getData("BenzineAutoKM", getLoggedInUser())));
@@ -53,21 +52,34 @@ public class SubmissionHandler {
         formList(nameListView, KMListView, pointsListView);
 
     }
-    public static void formList(ListView<String> nameListView, ListView<String> KMListView, ListView<Double> pointsListView) {
+    public static Integer[] ptHandler(){
+        totalBenzineCarPT = Double.parseDouble(totalBenzineAutoKM) * 0.25;
+        totalDieselAutoPT = Double.parseDouble(totalDieselAutoKM) *0.30;
+        totalElecAutoPT = Double.parseDouble(totalElecAutoKM) * 0.80;
+        totalOVPT = Double.parseDouble(totalOVKM) * 0.50;
+        totalVliegtuigPT = Double.parseDouble(totalVliegtuigKM)* 0.10;
+        totalHybridAutoPT = Double.parseDouble(totalHybridAutoKM) * 0.45;
+
+        int intTotalBenzineCarPT = (int) Math.round(totalBenzineCarPT);
+        int intTotalDieselAutoPT = (int) Math.round(totalDieselAutoPT);
+        int intTotalElecAutoPT = (int) Math.round(totalElecAutoPT);
+        int intTotalOVPT = (int) Math.round(totalOVPT);
+        int intTotalVliegtuigPT = (int) Math.round(totalVliegtuigPT);
+        int intTotalHybridAutoPT = (int) Math.round(totalHybridAutoPT);
+
+        int totalPT = intTotalBenzineCarPT + intTotalDieselAutoPT + intTotalElecAutoPT + intTotalOVPT + intTotalVliegtuigPT + intTotalHybridAutoPT;
+        setData("TotalPT", String.valueOf(totalPT), getLoggedInUser());
+
+        return new Integer[] {intTotalBenzineCarPT,intTotalDieselAutoPT, intTotalElecAutoPT, intTotalOVPT, intTotalVliegtuigPT, intTotalHybridAutoPT};
+    }
+    public static void formList(ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView) {
         nameListView.getItems().clear();
         KMListView.getItems().clear();
         pointsListView.getItems().clear();
 
-        TotalBenzineCarPT = Double.parseDouble(totalBenzineAutoKM) * 0.25;
-        totalDieselAutoPT = Double.parseDouble(totalBenzineAutoKM) *0.30;
-        totalElecAutoPT = Double.parseDouble(totalBenzineAutoKM) * 0.80;
-        totalOVPT = Double.parseDouble(totalBenzineAutoKM) * 0.50;
-        totalVliegtuigPT = Double.parseDouble(totalBenzineAutoKM)* 0.10;
-        totalHybridAutoPT = Double.parseDouble(totalBenzineAutoKM) * 0.45;
-
         String[] names = {"Benzine Auto","Diesel Auto", "Elektrische Auto", "Openbaar Vervoer", "Vliegtuig", "Hybride Auto"};
         String[] km = {totalBenzineAutoKM + " km", totalDieselAutoKM + " km",totalElecAutoKM + " km",totalOVKM + " km",totalVliegtuigKM + " km",totalHybridAutoKM + " km"};
-        Double[] punten = {TotalBenzineCarPT,totalDieselAutoPT, totalElecAutoPT, totalOVPT, totalVliegtuigPT, totalHybridAutoPT};
+        Integer[] punten = ptHandler();
 
         nameListView.getItems().addAll(names);
         KMListView.getItems().addAll(km);
