@@ -23,26 +23,21 @@ public class SubmissionHandler {
     static String totalHybridAutoKM = getData("HybridAutoKM", getLoggedInUser());
     static String totalWalkingAndCyclingKM = getData("WalkingAndCyclingKM",getLoggedInUser());
 
+    public static String checkTextfield(TextField vehicle, String column){
+        if ((!(vehicle.getText() == null)) && (!vehicle.getText().equals(""))){
+            return String.valueOf(Integer.parseInt(vehicle.getText()) + Integer.parseInt(getData(column, getLoggedInUser())));
+        }
+        return String.valueOf(Integer.parseInt(getData(column, getLoggedInUser())));
+    }
+
     public static void submissionHandler(TextField benzineAuto, TextField dieselAuto, TextField elecAuto, TextField OV, TextField vliegtuig, TextField hybridAuto,ListView<String> nameListView, ListView<String> KMListView, ListView<Integer> pointsListView){
 
-        if ((!(benzineAuto.getText() == null)) && (!benzineAuto.getText().equals(""))){
-            totalBenzineAutoKM = String.valueOf(Integer.parseInt(benzineAuto.getText()) + Integer.parseInt(getData("BenzineAutoKM", getLoggedInUser())));
-        }
-        if (!(dieselAuto.getText() == null) && !dieselAuto.getText().equals("")){
-            totalDieselAutoKM = String.valueOf(Integer.parseInt(dieselAuto.getText()) + Integer.parseInt(getData("DieselAutoKM", getLoggedInUser())));
-        }
-        if (!(elecAuto.getText() == null) && !(elecAuto.getText().equals(""))){
-            totalElecAutoKM = String.valueOf(Integer.parseInt(elecAuto.getText()) + Integer.parseInt(getData("ElecAutoKM", getLoggedInUser())));
-        }
-        if (!(OV.getText() == null) && !OV.getText().equals("")){
-            totalOVKM = String.valueOf(Integer.parseInt(OV.getText()) + Integer.parseInt(getData("OVKM", getLoggedInUser())));
-        }
-        if (!(vliegtuig.getText() == null) && !vliegtuig.getText().equals("")){
-            totalVliegtuigKM = String.valueOf(Integer.parseInt(vliegtuig.getText()) + Integer.parseInt(getData("VliegtuigKM", getLoggedInUser())));
-        }
-        if (!(hybridAuto.getText() == null) && !hybridAuto.getText().equals("")){
-            totalHybridAutoKM = String.valueOf(Integer.parseInt(hybridAuto.getText()) + Integer.parseInt(getData("HybridAutoKM", getLoggedInUser())));
-        }
+        totalBenzineAutoKM = checkTextfield(benzineAuto, "BenzineAutoKM");
+        totalDieselAutoKM =checkTextfield(dieselAuto, "DieselAutoKM");
+        totalElecAutoKM = checkTextfield(elecAuto, "ElecAutoKM");
+        totalOVKM = checkTextfield(OV, "OVKM");
+        totalVliegtuigKM = checkTextfield(vliegtuig, "VliegtuigKM");
+        totalHybridAutoKM = checkTextfield(hybridAuto, "HybridAutoKM");
 
         setData("BenzineAutoKM", totalBenzineAutoKM, getLoggedInUser());
         setData("DieselAutoKM", totalDieselAutoKM, getLoggedInUser());
