@@ -45,6 +45,7 @@ public class SubmissionHandler {
         setData("OVKM", totalOVKM, getLoggedInUser());
         setData("VliegtuigKM", totalVliegtuigKM, getLoggedInUser());
         setData("HybridAutoKM", totalHybridAutoKM, getLoggedInUser());
+        setData("WalkingAndCyclingKM", totalWalkingAndCyclingKM, getLoggedInUser());
 
         formList(nameListView, KMListView, pointsListView);
 
@@ -67,7 +68,7 @@ public class SubmissionHandler {
         totalOVPT = Double.parseDouble(totalOVKM) * 1.20;
         totalVliegtuigPT = Double.parseDouble(totalVliegtuigKM)* -0.05;
         totalHybridAutoPT = Double.parseDouble(totalHybridAutoKM) * -0.10;
-        totalWalkingAndCyclingPT = Double.parseDouble(totalHybridAutoKM) * 2.0;
+        totalWalkingAndCyclingPT = Double.parseDouble(totalWalkingAndCyclingKM) * 2.0;
 
         int intTotalBenzineCarPT = (int) Math.round(totalBenzineCarPT);
         int intTotalDieselAutoPT = (int) Math.round(totalDieselAutoPT);

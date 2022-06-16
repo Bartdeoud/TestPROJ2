@@ -45,6 +45,8 @@ public class FormController extends Controller implements Initializable {
     TextField Vliegtuig;
     @FXML
     TextField ElecAuto;
+    @FXML
+    TextField WalkingAndCycling;
 
     // Implement the initialize method from the interface Initializable
     // And shows the initialized variables on the scene
@@ -54,6 +56,6 @@ public class FormController extends Controller implements Initializable {
     }
     @FXML
     public void AddKM(ActionEvent event) {
-        SubmissionHandler.submissionHandler(BenzineAuto,DieselAuto,ElecAuto,OV,Vliegtuig,HybridAuto,NameListView,KMListView,PointsListView);
+        SubmissionHandler.submissionHandler(BenzineAuto,DieselAuto,ElecAuto,OV,Vliegtuig,HybridAuto,WalkingAndCycling,NameListView,KMListView,PointsListView);
     }
 }
